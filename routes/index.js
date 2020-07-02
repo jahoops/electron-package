@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var scraper = require('../utils/scraper')
+var nightmare = require('../utils/nightmareget');
 var fs = require('fs');
 var path = require('path');
 
 //Load the list
-var searcharray = fs.readFileSync('search.txt').toString().split(/\r?\n/);
+var p = path.join(__dirname, '..', 'search.txt');
+var searcharray = fs.readFileSync(p).toString().split(/\r?\n/);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,9 +14,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/searchitem', (req, res) => {
-  console.log('req',req.body);
+  console.log('sending',nightmare);
   const watchEbayItem = new Promise((resolve, reject) => {
-      scraper
+      nightmare
           .scrapeEbayItem(req.body.url)
           .then(data => {
               resolve(data);
