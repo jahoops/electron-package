@@ -3,25 +3,7 @@
   "version": "1.0.0",
   "description": "eBay search tool",
   "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
-  },
-  "build": {
-    "appId": "esearch",
-    "win": {
-      "target": "NSIS",
-      "icon": "build/icon.ico"
-    }
-  },
-  "repository": "https://github.com/majikarp/node-desktop-app-template",
-  "keywords": [
-    "Electron",
-    "Node",
-    "Ebay",
-    "Scraper"
-  ],
+  "bin": "bin.js",
   "author": "jahoops",
   "license": "CC0-1.0",
   "dependencies": {
@@ -35,8 +17,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "electron": "^4.2.12",
-    "electron-builder": "^22.7.0",
     "gulp": "4.0.0"
   }
 }
